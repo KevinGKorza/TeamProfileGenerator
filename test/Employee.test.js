@@ -1,33 +1,40 @@
+//
 const Employee = require('../library/Employee');
-//an employee has been created
-test('employee object',() => {
-    const employee = new Employee("Homer Simpson", 1, "hsimpson@springfieldplant.com");
-    expect(employee.email).toEqual(expect.any(String));
-    expect(employee.name).toEqual(expect.any(String));
-    expect(employee.id).toEqual(expect.any(Number));
+describe("Employee", () => {
+    describe("Initialization", () => {
+        it("should return an object with the name of, id of, and email of employee", () => {
+            const Employee = new Employee("Homer Simpson", 1, "HSimpson@gmail.com");
+            expect (Employee.name).toEqual("Homer Simpson");
+            expect(Employee.id).toEqual(1);
+            expect(Employee.email).toEqual("HSimpson@gmail.com");
+        });
+    });
+    //the name of the employee
+    describe("getName", () => {
+        it("should return the name of the Employee", () => {
+            const Employee = new Employee("Homer Simpson", 1, "HSimpson@gmail.com");
+            expect(Employee.getName()).toEqual("Homer Simpson");
+        });
+    });
+    //the id
+    describe("getId", () => {
+        it("should return the ID of the Employee", () => {
+            const Employee = new Employee("Homer Simpson", 1, "HSimpson@gmail.com");
+            expect(Employee.getID()).toEqual(1);
+        });
+    });
+    //the email
+    describe("getEmail", () => {
+        it("should return the email of the Employee", () => {
+            const Employee = new Employee("Homer Simpson", 1, "HSimpson@gmail.com");
+            expect(Employee.getEmail()).toEqual("HSimpson@gmail.com");
+        });
+    });
+    //the role
+    describe("getRole", () => {
+        it("should return the role of the Employee", () => {
+            const Employee = new Employee("Homer Simpson", 1, "HSimpson@gmail.com");
+            expect(Employee.getRole()).toEqual("Employee");
+        });
+    });
 });
-
-test('employee name',() => {
-    const employee = new Employee("Homer Simpson", 1, "hsimpson@springfieldplant.com");
-    expect(employee.getName()).toEqual(expect.any(String));
-});
-
-//gets id 
-test('employee ID', () => {
-    const employee = new Employee("Homer Simpson", 1, "hsimpson@springfieldplant.com");
-    expect(employee.getId()).toEqual(expect.any(String));
-});
-
-
-//gets email
-test('employee email', () => {
-    const employee = new Employee("Homer Simpson", 1, "hsimpson@springfieldplant.com");
-    expect(employee.getEmail()).toEqual(expect.stringContaining(employee.email.toString()));
-});
-
-//gets role 
-test('get role', () => {
-    const employee = new Employee("Homer Simpson", 1, "hsimpson@springfieldplant.com");
-    expect(employee.getRole()).toEqual("Employee");
-});
-
